@@ -31,6 +31,20 @@
 		mmc0 = &sdhci0;
 		mmc1 = &sdhci1;
 	};
+	
+	socmidi@0xa00000000 {
+		compatible = "holotr,socsynth-midi";
+		reg = <0x0 0xA0000000 0x0 0x00010>;
+		address_width = <3>;   /* embeddedsw.dts.params.address_width type NUMBER */
+		data_width = <8>;      /* embeddedsw.dts.params.data_width type NUMBER */
+	};
+
+	uio-holosynth@0xa0040000 {
+		compatible = "uio_pdrv_genirq";
+		reg = <0x0 0xA0040000 0x0 0x10000>;
+		address_width = <11>;
+		data_width = <32>;
+	};
 
 	chosen {
 		bootargs = "earlycon";
